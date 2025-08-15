@@ -28,18 +28,34 @@ public class Fruteria {
         double subtotalmanzana, subtotalbanano, total, descuento, totalfinal;
         subtotalmanzana = submanzana(manzana, PRECIO_MANZANA);
         subtotalbanano = subanano(banano, PRECIO_BANANO);
-
+        total = subtotal(subtotalmanzana, subtotalbanano);
+        descuento = descuento(total);
+        totalfinal = totalfinal(total, descuento);
 
         System.out.println("El subtotal de la cantidad de las manzanas es: " + subtotalmanzana);
         System.out.println("El subtotal de la cantidad de las banano es: " + subtotalbanano);
+        System.out.println("El subtotal es: " + total);
+        System.out.println("El descuento del 10% que tiene es: " + descuento);
+        System.out.println("El total de su compra es de: " + totalfinal);
     }
 
-    public static int submanzana(int manzana, int preciomanzana) { 
+    public static double submanzana(double manzana, double preciomanzana) { 
         return manzana*preciomanzana;
     } 
 
-    public static int subanano(int banano, int preciobanano) {
+    public static double subanano(double banano, double preciobanano) {
         return banano*preciobanano;
     }
 
+    public static double subtotal(double subtotalmanzana, double subtotalbanano){
+        return subtotalmanzana+subtotalbanano;
+    }
+
+    public static double descuento(double total){
+        return total*0.10;
+    }
+
+    public static double totalfinal(double total, double descuento){
+        return total-descuento;
+    }
 }
